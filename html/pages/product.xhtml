@@ -1,0 +1,49 @@
+<?php
+ $product = $response->product;
+?>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>SuXX :: SUperstore - the eXclusive eXperience - Details view </title>
+</head>
+<body>
+    <div id="header">
+       <h1>SuXX :: SUperstore - the eXclusive eXperience</h1>
+    </div>
+    <div style="float:left; width:700px; border:1px solid red;">
+      <p>
+        <span>Product No <?php echo $product->PID; ?></span>        
+      </p>
+      <img src="/?=PHPE9568F34-D428-11d2-A769-00AA001ACF42" />
+      <h2><?php echo $product->LABEL; ?></h2>
+      <h3 style="text-align:right;">For only US$ <?php echo $product->PRICE; ?></h3>
+      
+      <?php foreach($response->comments as $comment) { ?>
+        <div>
+           <?php if ($comment->PICTURE != '') { ?>
+           <img src="/comments/<?php echo $comment->CID; ?>_<?php echo $comment->PICTURE; ?>" />
+           <?php } ?>
+           <?php echo $comment->AUTHOR; ?> said:<br/>
+           <?php echo $comment->COMMENT; ?>
+        </div>
+      <?php } ?>
+      
+      <?php if ($request->getValue('user')) { ?>
+      <div>
+	      <h4>Add a comment?</h4>
+	      <form enctype="multipart/form-data" method="post" action="/suxx/comment">
+	          <input type="hidden" name="product" value="<?php echo $product->PID; ?>" />
+	          <textarea name="comment" style="width:700px;"></textarea>
+	          <br />
+	          Add a photo? <input type="file" name="picture" />
+	          <br />          
+	          <input type="submit" />
+	      </form>
+      </div>
+      <?php } else { ?>
+      <h4>Login to leave a comment.</h4>
+      <?php } ?>
+    </div>
+</body>
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>SuXX :: SUperstore - the eXclusive eXperience - Homepage </title>
+</head>
+<body>
+    <div id="header">
+       <h1>SuXX :: SUperstore - the eXclusive eXperience</h1>
+    </div>
+    <div>
+       <?php
+            $msg = $request->getValue('message');
+            if ($msg) {
+               echo '<p style="color:green;">'.$msg.'</p>';
+            }
+         ?>     
+    </div>
+    <div style="float:left; width:700px; border:1px solid red;">
+      <table>
+         <?php foreach($response->products as $product) { ?>
+         <tr>
+            <td>
+                <a href="/suxx/product?pid=<?php echo $product->PID; ?>"><img src="/?=PHPE9568F34-D428-11d2-A769-00AA001ACF42" /></a>
+            </td>
+            <td><a href="/suxx/product?pid=<?php echo $product->PID; ?>"><?php echo $product->LABEL; ?></a></td>
+         </tr>
+         <?php } ?>
+      </table>
+    </div>
+    <?php if (!$request->getValue('user')) { ?>
+    <div style="float:right">
+    <fieldset id="login">
+       <legend>Login:</legend>    
+       <form action="/suxx/login" method="post">
+         <table>
+            <tr>
+               <td>Login:</td>
+               <td><input type="text" name="username" /></td>
+            </tr>
+            <tr>
+               <td>Password:</td>
+               <td><input type="password" name="passwd" /></td>
+            </tr>
+            <tr>
+               <td>&#160;</td>
+               <td><input type="submit" value="Login!" /></td>
+            </tr>
+        </table>
+       </form>
+    </fieldset>
+    <fieldset id="register" title="Register">    
+       <legend>Register:</legend>    
+       <form action="/suxx/register" method="post">
+         <table>
+            <tr>
+               <td>Login:</td>
+               <td><input type="text" name="username" /></td>
+            </tr>
+            <tr>
+               <td>Password:</td>
+               <td><input type="password" name="passwd" /></td>
+            </tr>
+            <tr>
+               <td>Name:</td>
+               <td><input type="text" name="name" /></td>
+            </tr>            
+            <tr>
+               <td>Mail:</td>
+               <td><input type="text" name="email" /></td>
+            </tr>
+            <tr>
+               <td>&#160;</td>
+               <td><input type="submit" value="Register me!" /></td>
+            </tr>
+        </table>
+       </form>
+    </fieldset>
+    </div>
+    <?php } ?>
+</body>
+</html>
