@@ -6,7 +6,7 @@
  * *** DO NOT USE IN ANY TYPE OF PRODUCTION ***
  *
  * The application is stripped down and contains various security issues to be found
- * by course attendees. It is not ment to be used as an actual social network or a
+ * by course attendees. It is not ment to be used as an actual shop application or a
  * base for one.
  *
  * @author Arne Blankerts <arne@thephp.cc>
@@ -19,7 +19,7 @@ class SuxxCommentController extends SuxxController {
    public function execute(SuxxRequest $request, SuxxResponse $response) {
       $db = $this->factory->getDatabase(DSN);
 
-      $picture = isset($_FILES['picture']) ? basename($_FILES['picture']['name']) : '';
+      $picture = isset($_FILES['picture']) ? $_FILES['picture']['name'] : '';
       $res = $db->query(
          'insert into comments (PID,AUTHOR,COMMENT,PICTURE) values ("%s","%s","%s","%s")',
          $request->getValue('product'),
