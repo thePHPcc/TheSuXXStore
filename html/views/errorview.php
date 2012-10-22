@@ -9,8 +9,8 @@
  * by course attendees. It is not meant to be used as an actual shop application or a
  * base for one.
  *
- * @author Arne Blankerts <arne@thephp.cc>
- * @copyright 2011 thePHP.cc - the PHP consulting company, Germany
+ * @author Arne Blankerts <arne.blankerts@thephp.cc>
+ * @copyright 2011-2012 thePHP.cc - The PHP Consulting Company, Germany
  *
  */
 
