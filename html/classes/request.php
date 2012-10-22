@@ -6,7 +6,7 @@
  * *** DO NOT USE IN ANY TYPE OF PRODUCTION ***
  *
  * The application is stripped down and contains various security issues to be found
- * by course attendees. It is not ment to be used as an actual shop application or a
+ * by course attendees. It is not meant to be used as an actual shop application or a
  * base for one.
  *
  * @author Arne Blankerts <arne@thephp.cc>
